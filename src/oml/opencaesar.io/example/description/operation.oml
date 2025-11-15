@@ -59,4 +59,7 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 	instance road-vehicle : operational:Entity [
 		base:hasCanonicalName "Road Vehicle"
 	]
+	instance bus : operational:Entity [
+		base:hasCanonicalName "Road Vehicle Bus"
+	]	
 }
