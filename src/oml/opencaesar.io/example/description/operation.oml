@@ -40,7 +40,7 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 		operational:isRequiredBy m2
 	]
 
-	instance c4 : operational:Capability [
+	instance c400 : operational:Capability [
 		base:hasIdentifier "C.04"
 		base:hasDescription "Temporarily favor road traffic"
 		operational:isRequiredBy m2
