@@ -9,6 +9,8 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 
 	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
 
+	uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
 	// Example concept instance
 	instance m1 : operational:Mission [
 		base:hasIdentifier "M.01"
@@ -74,4 +76,6 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 	instance heavy-truck : operational:Entity [
 		base:hasCanonicalName "Heavy Truck"
 	]
+
+	instance lady-with-baby : mission:Component
 }

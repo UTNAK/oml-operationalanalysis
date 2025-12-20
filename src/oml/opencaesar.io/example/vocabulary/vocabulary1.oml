@@ -5,6 +5,12 @@ vocabulary <http://opencaesar.io/example/vocabulary/vocabulary1#> as vocabulary1
 	
 	extends <http://purl.org/dc/elements/1.1/> as dc
 	
+	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
+	
 	// Example aspect
 	aspect A
 
@@ -17,5 +23,24 @@ vocabulary <http://opencaesar.io/example/vocabulary/vocabulary1#> as vocabulary1
 		to A
 		forward r
 	]
+	concept FRETishRequirement < mission:Requirement[
+		restricts all mission:specifies to Phase
+		restricts all mission:specifies to Activity		
+	]
+
+	scalar property hasFRETish [
+		domain FRETishRequirement
+		range xsd:string
+	]< base:hasDescription
+	
+	scalar property hasFRETId [
+		domain FRETishRequirement
+		range xsd:string
+	]< base:hasIdentifier
+	
+	concept Phase < mission:Function, mission:SpecifiedElement
+	concept Activity < mission:Function, mission:SpecifiedElement
+	
+	
 
 }
