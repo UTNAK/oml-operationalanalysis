@@ -33,6 +33,10 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 		operational:isRequiredBy m1
 	]
 
+	instance o2_1 : operational:OperationalActivity [
+		operational:mapsTo c2
+	]
+
 	instance c3 : operational:Capability [
 		base:hasIdentifier "C.03"
 		base:hasDescription "Acknowledge approaching road vehicles"
@@ -58,5 +62,50 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 
 	instance road-vehicle : operational:Entity [
 		base:hasCanonicalName "Road Vehicle"
+		base:aggregates cars
+		base:aggregates bus
+		base:aggregates heavy-trucks
+		base:aggregates two-wheeled-vehicles	
 	]
+
+	instance bus : operational:Entity [
+		base:hasCanonicalName "Bus"
+	]
+
+	instance cars : operational:Entity[
+		base:hasCanonicalName "Cars"
+	]
+
+	instance heavy-trucks : operational:Entity[
+		base:hasCanonicalName "Heavy Trucks"
+	]
+
+	instance two-wheeled-vehicles : operational:Entity[
+		base:hasCanonicalName "Two Wheeled Vehicles"
+	]
+
+	instance train-arriving-in-the-station : operational:Entity[
+		base:hasCanonicalName "Train Arriving in the Station"
+	]
+
+	instance train-leaving : operational:Entity[
+		base:hasCanonicalName "Train Leaving"
+	]
+
+	// instance distressed-party-01 :  operational:OperationalRole[
+	// 	operational:performs transmit-distress-signal
+	// ]
+	// instance distressed-party-02 :  operational:OperationalRole
+	// instance sar-monitor-01 :  operational:OperationalRole[
+	// 	operational:performs receive-distress-and-transmit-new-track-or-track-update
+	// ]
+	// instance sar-monitor-02 :  operational:OperationalRole
+
+	// instance transmit-distress-signal : operational:OperationalActivity
+	// instance receive-distress-and-transmit-new-track-or-track-update : operational:OperationalActivity
+	// relation instance distress-01 : operational:Exchange [
+	// 	from transmit-distress-signal
+	// 	to receive-distress-and-transmit-new-track-or-track-update
+	// ]
+
 }

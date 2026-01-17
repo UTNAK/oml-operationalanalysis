@@ -42,4 +42,71 @@ vocabulary <http://opencaesar.io/example/vocabulary/operational#> as operational
 		restricts all base:aggregates to Entity
 		restricts all base:isAggregatedIn to Entity
 	]
+
+	// @rdfs:label "Process"
+	// @dc:description "A [=Process=] is an operational activity carried out by one or more operational entities."
+	// concept Process < base:IdentifiedElement, base:AggregatedElement  [
+	// 	restricts all base:aggregates to Process
+	// 	restricts all base:isAggregatedIn to Process
+	// ]
+
+	// @rdfs:label "Activity Scenario"
+	// @dc:description "An [=Activity Scenario=] is a sequence of [=Process=]es representing a specific situation
+	// in which the system is likely to be used or to operate."
+	// concept ActivityScenario < base:IdentifiedElement, base:AggregatedElement  [
+	// 	restricts all base:aggregates to Process
+	// 	restricts all base:isAggregatedIn to Process
+	// ]
+
+	// @rdfs:label "isDescribedBy"
+	// @dc:description "An [=Capability=] [=is described by=] zero or more [=Process=]es. An [=Capability=] [=is described by=] zero or more [=Activity Scenario=]s." 
+	// relation entity isDescribedBy [
+	// 	from Capability
+	// 	to Process, ActivityScenario
+	// 	@rdfs:label "is described by"
+	// 	forward isdescribedby
+	// 	@rdfs:label "describes"
+	// 	reverse Describes
+	// 	asymmetric
+	// 	irreflexive
+	// ]
+
+	// concept OperationalRole < Entity
+	// concept OperationalActivity < base:IdentifiedElement, base:AggregatedElement  [
+	// ]
+	// relation entity Exchange[
+	// 	from OperationalActivity
+	// 	to OperationalActivity
+	// 	forward sendsTo
+	// 	reverse receivesFrom
+	// ]
+
+	// concept OperationalExchangeItem 
+
+	// relation entity Transmits[
+	// 	from Exchange
+	// 	to OperationalExchangeItem
+	// 	forward transmits
+	// 	reverse isTransmittedBy
+	// 	functional
+	// ]
+
+	// relation entity Performs[
+	// 	from OperationalRole
+	// 	to OperationalActivity
+	// 	forward performs
+	// 	reverse isPerformedBy
+	// 	functional
+	// ]
+
+	concept OperationalActivity
+
+	relation entity MapsTo[
+		from OperationalActivity
+		to Capability
+		forward mapsTo
+		reverse isMappedBy
+	]
+
+
 }

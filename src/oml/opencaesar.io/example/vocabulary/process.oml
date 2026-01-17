@@ -1,0 +1,172 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/example/vocabulary/process#> as process {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+
+    concept Role
+
+    concept Stuff < Role
+    concept Leader < Role
+    concept Manager < Role
+    concept Purchasing < Role
+
+    concept Activity < base:IdentifiedElement
+
+    concept Apply < Activity
+    concept Approve < Activity
+    concept Receive < Activity
+
+    relation entity Performs[
+        from Role
+        to Activity
+        forward performs
+        reverse isPerformedBy
+        functional
+    ]
+
+    relation entity Invokes[
+        from Activity
+        to Activity
+        forward invokes
+        reverse isInvokedBy
+    ]
+
+    concept PurchasedItem < base:IdentifiedElement
+
+    relation entity Handles[
+        from Activity
+        to PurchasedItem
+        forward handles
+        reverse isHandledBy
+        functional
+    ]
+
+    scalar property Status[
+        domain PurchasedItem
+        range xsd:string
+        functional
+    ]
+
+    scalar property Amount[
+        domain PurchasedItem
+        range xsd:integer
+        functional
+    ]
+
+    scalar property TimeStamp[
+        domain Activity
+        range xsd:dateTimeStamp
+        functional
+    ]
+
+
+	// @rdfs:label "Mission"
+	// @dc:description "A [=Mission=] is a high-level goal to which one or more operational entities should contribute,
+	// and which is likely to influence system definition or usage."
+	// concept Mission < base:IdentifiedElement
+
+	// @rdfs:label "Capability"
+	// @dc:description "A [=Capability=] is An ability, expected of one or more operational entities,
+	// to provide a service contributing to fulfilling one or more operational missions."
+	// concept Capability < base:IdentifiedElement, base:AggregatedElement [
+	// 	restricts all base:aggregates to Capability
+	// 	restricts all base:isAggregatedIn to Capability
+	// ]
+
+	// @rdfs:label "Requires"
+	// @dc:description "A [=Mission=] [=requires=] zero or more [=Capability=]s."
+	// relation entity Requires [
+	// 	from Mission
+	// 	to Capability
+	// 	@rdfs:label "requires"
+	// 	forward requires
+	// 	@rdfs:label "is required by"
+	// 	reverse isRequiredBy
+	// 	asymmetric
+	// 	irreflexive
+	// ]
+
+	// @rdfs:label "Entity"
+	// @dc:description "An [=Entity=] is a real-world entity (a physical element, a group or organization, 
+	// another system),carrying out operational activities to which the system is likely to contribute, or which can influence the system"
+	// concept Entity < base:IdentifiedElement, base:AggregatedElement [
+	// 	restricts all base:aggregates to Entity
+	// 	restricts all base:isAggregatedIn to Entity
+	// ]
+
+	// // @rdfs:label "Process"
+	// // @dc:description "A [=Process=] is an operational activity carried out by one or more operational entities."
+	// // concept Process < base:IdentifiedElement, base:AggregatedElement  [
+	// // 	restricts all base:aggregates to Process
+	// // 	restricts all base:isAggregatedIn to Process
+	// // ]
+
+	// // @rdfs:label "Activity Scenario"
+	// // @dc:description "An [=Activity Scenario=] is a sequence of [=Process=]es representing a specific situation
+	// // in which the system is likely to be used or to operate."
+	// // concept ActivityScenario < base:IdentifiedElement, base:AggregatedElement  [
+	// // 	restricts all base:aggregates to Process
+	// // 	restricts all base:isAggregatedIn to Process
+	// // ]
+
+	// // @rdfs:label "isDescribedBy"
+	// // @dc:description "An [=Capability=] [=is described by=] zero or more [=Process=]es. An [=Capability=] [=is described by=] zero or more [=Activity Scenario=]s." 
+	// // relation entity isDescribedBy [
+	// // 	from Capability
+	// // 	to Process, ActivityScenario
+	// // 	@rdfs:label "is described by"
+	// // 	forward isdescribedby
+	// // 	@rdfs:label "describes"
+	// // 	reverse Describes
+	// // 	asymmetric
+	// // 	irreflexive
+	// // ]
+
+	// // concept OperationalRole < Entity
+	// // concept OperationalActivity < base:IdentifiedElement, base:AggregatedElement  [
+	// // ]
+	// // relation entity Exchange[
+	// // 	from OperationalActivity
+	// // 	to OperationalActivity
+	// // 	forward sendsTo
+	// // 	reverse receivesFrom
+	// // ]
+
+	// // concept OperationalExchangeItem 
+
+	// // relation entity Transmits[
+	// // 	from Exchange
+	// // 	to OperationalExchangeItem
+	// // 	forward transmits
+	// // 	reverse isTransmittedBy
+	// // 	functional
+	// // ]
+
+	// // relation entity Performs[
+	// // 	from OperationalRole
+	// // 	to OperationalActivity
+	// // 	forward performs
+	// // 	reverse isPerformedBy
+	// // 	functional
+	// // ]
+
+	// concept OperationalActivity
+
+	// relation entity MapsTo[
+	// 	from OperationalActivity
+	// 	to Capability
+	// 	forward mapsTo
+	// 	reverse isMappedBy
+	// ]
+
+
+}

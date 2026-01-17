@@ -1,0 +1,36 @@
+@dc:title "Example Description"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+description <http://opencaesar.io/example/description/ProcessCases/Case1#> as case1 {
+
+	uses <http://purl.org/dc/elements/1.1/> as dc
+
+	uses <http://opencaesar.io/example/vocabulary/process#> as process
+
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+	// Example concept instance
+	// instance case1 : process:Mission [
+	// 	base:hasIdentifier "M.01"
+	// 	base:hasDescription "Prevent any collision between train and road vehicles"
+	// ]
+
+	
+
+	// instance distressed-party-01 :  operational:OperationalRole[
+	// 	operational:performs transmit-distress-signal
+	// ]
+	// instance distressed-party-02 :  operational:OperationalRole
+	// instance sar-monitor-01 :  operational:OperationalRole[
+	// 	operational:performs receive-distress-and-transmit-new-track-or-track-update
+	// ]
+	// instance sar-monitor-02 :  operational:OperationalRole
+
+	// instance transmit-distress-signal : operational:OperationalActivity
+	// instance receive-distress-and-transmit-new-track-or-track-update : operational:OperationalActivity
+	// relation instance distress-01 : operational:Exchange [
+	// 	from transmit-distress-signal
+	// 	to receive-distress-and-transmit-new-track-or-track-update
+	// ]
+
+}
