@@ -45,5 +45,15 @@ vocabulary <http://opencaesar.io/example/vocabulary/operational#> as operational
 		restricts all base:isAggregatedIn to Entity
 	]
 
+	concept OperationalActivity
+
 	concept RoadVehicle < Entity
+
+	relation entity MapsTo[
+		from OperationalActivity
+		to Capability
+		forward mapsTo
+		reverse isMappedBy
+	]
+
 }

@@ -35,6 +35,10 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 		operational:isRequiredBy m1
 	]
 
+	instance o2_1 : operational:OperationalActivity[
+		operational:mapsTo c2
+	]
+
 	instance c3 : operational:Capability [
 		base:hasIdentifier "C.03"
 		base:hasDescription "Acknowledge approaching road vehicles"
