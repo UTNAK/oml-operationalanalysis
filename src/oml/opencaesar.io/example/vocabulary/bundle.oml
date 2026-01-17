@@ -7,5 +7,6 @@ vocabulary bundle <http://opencaesar.io/example/vocabulary/bundle#> as vocabular
 
 	includes <http://opencaesar.io/example/vocabulary/vocabulary1#>
 	includes <http://opencaesar.io/example/vocabulary/operational#>
+	includes <http://opencaesar.io/example/vocabulary/process#>
 
 }

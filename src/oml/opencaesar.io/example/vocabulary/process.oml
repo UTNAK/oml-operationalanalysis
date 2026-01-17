@@ -58,13 +58,15 @@ vocabulary <http://opencaesar.io/example/vocabulary/process#> as process {
 
     scalar property Amount[
         domain PurchasedItem
-        range xsd:integer
+        range xsd:string
+        // range xsd:integer
         functional
     ]
 
     scalar property TimeStamp[
         domain Activity
-        range xsd:dateTimeStamp
+        range xsd:string
+        // range xsd:dateTimeStamp
         functional
     ]
 

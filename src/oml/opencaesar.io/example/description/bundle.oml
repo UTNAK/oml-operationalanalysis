@@ -7,4 +7,5 @@ description bundle <http://opencaesar.io/example/description/bundle#> as d-bundl
 
 	uses <http://opencaesar.io/example/vocabulary/bundle#>
 	includes <http://opencaesar.io/example/description/operation#>
+	includes <http://opencaesar.io/example/description/ProcessCases/Case1#>
 }

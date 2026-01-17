@@ -9,12 +9,42 @@ description <http://opencaesar.io/example/description/ProcessCases/Case1#> as ca
 
 	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
 
-	// Example concept instance
-	// instance case1 : process:Mission [
-	// 	base:hasIdentifier "M.01"
-	// 	base:hasDescription "Prevent any collision between train and road vehicles"
-	// ]
+    uses <http://www.w3.org/2001/XMLSchema#> as xsd
 
+	// Example concept instance
+	instance p1 : process:PurchasedItem [
+		process:Status "unblocked"
+		process:Amount "12000"
+        process:isHandledBy apply-01
+        process:isHandledBy approve-01
+        process:isHandledBy receive-01
+	]
+    instance apply-01 : process:Apply [
+        process:handles p1
+        process:isPerformedBy A
+        process:invokes approve-01
+        process:TimeStamp "2024-06-15T10:00:00"
+    ]
+    instance approve-01 : process:Approve [
+        process:handles p1
+        process:isPerformedBy B
+        process:invokes receive-01
+        process:TimeStamp "2024-06-16T15:30:00"
+    ]
+    instance receive-01 : process:Receive [
+        process:handles p1
+        process:isPerformedBy C
+        process:TimeStamp "2024-06-17T09:45:00"
+    ]
+    instance A : process:Purchasing [
+        process:performs apply-01
+    ]
+    instance B : process:Manager [
+        process:performs approve-01
+    ]
+    instance C : process:Leader [
+        process:performs receive-01
+    ]
 	
 
 	// instance distressed-party-01 :  operational:OperationalRole[
