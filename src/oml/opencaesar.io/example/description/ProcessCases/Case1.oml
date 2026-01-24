@@ -9,11 +9,22 @@ description <http://opencaesar.io/example/description/ProcessCases/Case1#> as ca
 
 	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
 
+	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+
 	// Example concept instance
 	// instance case1 : process:Mission [
 	// 	base:hasIdentifier "M.01"
 	// 	base:hasDescription "Prevent any collision between train and road vehicles"
 	// ]
+
+	instance p1 : process:PurchasedItem[
+		process:Status "unblock"
+		process:Amount "12000"^^xsd:integer
+	]
+
+	instance a1 : process:Apply[
+		process:TimeStamp "2002-10-10T17:00:00Z"^^xsd:dateTimeStamp
+	]
 
 	
 
