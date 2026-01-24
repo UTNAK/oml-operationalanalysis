@@ -1,7 +1,16 @@
-PREFIX vocabulary1:   <http://opencaesar.io/example/vocabulary/vocabulary1#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX operational:        <http://opencaesar.io/example/vocabulary/operational#>
 
-SELECT ?x ?y
-
+#SELECT DISTINCT ?iri ?id ?name ?type
+SELECT DISTINCT ?p_name ?c_name
 WHERE {
-	?x vocabulary1:r ?y
+	?iri a operational:RoadVehicle ;
+		base:hasCanonicalName ?p_name ;
+  		base:aggregates ?childiri .
+#  		base:isAggregatedIn ?childiri .  
+  OPTIONAL{
+    	?childiri base:hasCanonicalName ?c_name;
+               }
 }
+ORDER BY ?iri

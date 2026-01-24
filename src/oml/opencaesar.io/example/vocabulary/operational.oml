@@ -12,7 +12,9 @@ vocabulary <http://opencaesar.io/example/vocabulary/operational#> as operational
 	@rdfs:label "Mission"
 	@dc:description "A [=Mission=] is a high-level goal to which one or more operational entities should contribute,
 	and which is likely to influence system definition or usage."
-	concept Mission < base:IdentifiedElement
+	concept Mission < base:IdentifiedElement [
+		// restricts requires to exactly 1
+	]
 
 	@rdfs:label "Capability"
 	@dc:description "A [=Capability=] is An ability, expected of one or more operational entities,

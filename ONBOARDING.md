@@ -61,3 +61,18 @@ cd oml-operationalanalysis
 [http://localhost:3030](http://localhost:3030)
 
 ![alt text](img/image-1.png)
+
+
+
+# Setup Environments for Analysis Scripts
+[script](ONBOARDING.md)
+
+
+- Install [Quarto](https://quarto.org/)
+- Install [R](https://cran.rstudio.com/)
+- Install [RStudio](https://posit.co/download/rstudio-desktop/)
+
+```bash
+R --version
+quarto --version
+```

@@ -9,6 +9,8 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 
 	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
 
+	uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
 	// Example concept instance
 	instance m1 : operational:Mission [
 		base:hasIdentifier "M.01"
@@ -44,7 +46,7 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 		operational:isRequiredBy m2
 	]
 
-	instance c4 : operational:Capability [
+	instance c5 : operational:Capability [
 		base:hasIdentifier "C.04"
 		base:hasDescription "Temporarily favor road traffic"
 		operational:isRequiredBy m2
@@ -60,7 +62,7 @@ description <http://opencaesar.io/example/description/operation#> as operation {
 		base:hasCanonicalName "Train"
 	]
 
-	instance road-vehicle : operational:Entity [
+	instance road-vehicle : operational:RoadVehicle [
 		base:hasCanonicalName "Road Vehicle"
 		base:aggregates cars
 		base:aggregates bus
