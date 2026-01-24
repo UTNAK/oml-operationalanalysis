@@ -110,5 +110,7 @@ vocabulary <http://opencaesar.io/example/vocabulary/operational#> as operational
 		reverse isMappedBy
 	]
 
+	concept RoadVehicle < Entity
+
 
 }
