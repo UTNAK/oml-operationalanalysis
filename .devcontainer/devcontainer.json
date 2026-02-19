@@ -10,7 +10,9 @@
     "vscode": {
       "extensions": [
         "REditorSupport.r",
-        "quarto.quarto"
+        "quarto.quarto",
+        "./.devcontainer/oml-luxor-2.13.0.vsix",
+        "./.devcontainer/oml-vision-0.3.0.vsix"
       ]
     }
   },
